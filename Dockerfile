@@ -56,7 +56,7 @@ RUN apk upgrade \
     && ./configure --disable-documentation \
     && make install) \
     && git clone ${POLIPO_CLONE_URL} \
-    && (cd spolipo \
+    && (cd polipo \
     && make -sj \
     && make install) \
     && curl -o v2ray_plugin.tar.gz -sSL ${V2RAY_PLUGIN_DOWNLOAD_URL} \
@@ -81,5 +81,7 @@ RUN apk upgrade \
         v2ray_plugin.tar.gz \
         /var/cache/apk/*
 EXPOSE 1080 1088
+ADD services /services
+ADD test.sh /root/test.sh
 WORKDIR /root/
-CMD ["/bin/bash"]
+CMD ["/sbin/runit", '/services']
