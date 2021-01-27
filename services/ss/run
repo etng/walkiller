@@ -1,0 +1,13 @@
+#!/bin/sh -e
+cat <<EOT>ss.conf
+{
+    "server": "${SS_SERVER}",  
+    "server_port": ${SS_SERVER_PORT},
+    "password":"${SS_PASSWORD}",
+    "local_address": "0.0.0.0",
+    "local_port":${SS_OBFS_HOST},
+    "method":"${SS_METHOD}",
+    "timeout":600
+}
+EOF
+exec /usr/bin/ss-local -c ss.conf --plugin obfs-local --plugin-opts "obfs=http;obfs-host=${SS_OBFS_HOST}"

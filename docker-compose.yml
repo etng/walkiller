@@ -1,0 +1,18 @@
+version: '3'
+services:
+  walker:
+    image: etng/wallkiller:latest
+    # build:
+    #   context: ./
+    restart: unless-stopped
+    ports:
+      - "1080:1080"
+      - "1088:1088"
+    environment:
+      POLIPO_PORT: 1088
+      SS_PORT: 1080
+      SS_SERVER: ""
+      SS_SERVER_PORT: 8338
+      SS_PASSWORD: ""
+      SS_METHOD: "chacha20-ietf"
+      SS_OBFS_HOST: ""

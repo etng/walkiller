@@ -1,0 +1,2 @@
+#!/bin/sh -e
+exec /usr/local/bin/polipo proxyPort=${POLIPO_PORT} socksParentProxy=0.0.0.0:${SS_PORT} proxyAddress=0.0.0.0
