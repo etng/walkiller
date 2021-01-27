@@ -84,4 +84,4 @@ EXPOSE 1080 1088
 ADD services /services
 ADD test.sh /root/test.sh
 WORKDIR /root/
-CMD ["/sbin/runit", '/services']
+CMD ["/sbin/runsvdir", '/services']
