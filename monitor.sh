@@ -33,10 +33,3 @@ do
     sleep 120
 done
 echo "$(date) proxy monitor exited"
-
-export DINGTALK_TOKEN=4a6e577b5aae5b234589d625508e848dbd74714689c471fbec784b2c5e0eaefe
-export DINGTALK_PREFIX="大喇叭说："
-
-
-
-
