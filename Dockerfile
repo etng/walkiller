@@ -5,7 +5,7 @@ ARG TZ='Asia/Shanghai'
 ENV TZ ${TZ}
 ENV SS_LIBEV_VERSION v3.2.4
 ENV KCP_VERSION 20190109
-ENV SS_DOWNLOAD_URL https://github.com/shadowsocks/shadowsocks-libev.git 
+ENV SS_DOWNLOAD_URL https://github.com/shadowsocks/shadowsocks-libev.git
 ENV OBFS_DOWNLOAD_URL https://github.com/shadowsocks/simple-obfs.git
 ENV V2RAY_PLUGIN_DOWNLOAD_URL https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.0/v2ray-plugin-linux-amd64-8cea1a3.tar.gz
 ENV KCP_DOWNLOAD_URL https://github.com/xtaci/kcptun/releases/download/v${KCP_VERSION}/kcptun-linux-amd64-${KCP_VERSION}.tar.gz
@@ -18,6 +18,7 @@ ENV SS_SERVER_PORT=8338
 ENV SS_PASSWORD=""
 ENV SS_METHOD="chacha20-ietf"
 ENV SS_OBFS_HOST=""
+ENV SCKEY=
 
 RUN apk upgrade \
     && apk add \
@@ -83,5 +84,6 @@ RUN apk upgrade \
 EXPOSE 1080 1088
 ADD services /services
 ADD test.sh /root/test.sh
+ADD monitor.sh /root/monitor.sh
 WORKDIR /root/
 CMD ["/sbin/runsvdir", '/services']

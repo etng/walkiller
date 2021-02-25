@@ -1,0 +1,2 @@
+#!/bin/sh -e
+exec /root/monitor.sh
