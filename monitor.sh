@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 echo "$(date) proxy monitor started"
 while :
 do
