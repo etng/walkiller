@@ -18,7 +18,7 @@ ENV SS_SERVER_PORT=8338
 ENV SS_PASSWORD=""
 ENV SS_METHOD="chacha20-ietf"
 ENV SS_OBFS_HOST=""
-ENV SCKEY=
+ENV SC_KEY=
 
 RUN apk upgrade \
     && apk add \
