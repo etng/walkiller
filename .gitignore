@@ -1,1 +1,6 @@
 app
+docker-compose.*.yml
+/*.conf
+ytoo_updater
+upstreams.txt
+monitor_endpoints.json

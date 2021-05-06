@@ -1,2 +1,9 @@
 docker-compose.yml
 .gitignore
+/app
+/Makefile
+docker-compose.*.yml
+*.json
+*.conf
+upstreams.txt
+ytoo_updater
