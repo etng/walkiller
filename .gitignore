@@ -4,3 +4,7 @@ docker-compose.*.yml
 ytoo_updater
 upstreams.txt
 monitor_endpoints.json
+settings.*.py
+!settings.example.py
+settings.py
+*.log

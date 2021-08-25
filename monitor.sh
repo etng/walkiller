@@ -28,12 +28,18 @@ do
                 -H 'Content-Type: application/json' \
                 -d "{\"msgtype\": \"text\",\"text\": {\"content\": \"${DINGTALK_PREFIX} ${machine} ${now} ${POLIPO_PORT}代理挂啦 ${SS_METHOD}://${SS_PASSWORD}@${SS_SERVER}:${SS_SERVER_PORT}\"}}"
             fi
+            if [ -n "${NOTIFY_URL}" ]; then
+                echo "notify with notify_url"
+                curl -sSL ${NOTIFY_URL} \
+                -H 'Content-Type: application/json' \
+                -d "{\"status\": \"offline\", \"machine\": \"${machine}\",\"now\": \"${now}\",\"http_port\": \"${POLIPO_PORT}\",\"ss_server\": \"${SS_METHOD}://${SS_PASSWORD}@${SS_SERVER}:${SS_SERVER_PORT}\"}"
+            fi
         else
             echo "$(date) proxy back online now"
         fi
     else
     echo "$(date) proxy feels good"
     fi
-    sleep 120
+    sleep 300
 done
 echo "$(date) proxy monitor exited"

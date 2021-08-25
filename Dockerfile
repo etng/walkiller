@@ -19,6 +19,7 @@ ENV SS_PASSWORD=""
 ENV SS_METHOD="chacha20-ietf"
 ENV SS_OBFS_HOST=""
 ENV SC_KEY=
+ENV NOTIFY_URL=
 
 RUN apk upgrade \
     && apk add \
