@@ -23,6 +23,10 @@ auto_office:
 	scp fabfile.py officewa:/home/osint/wall/fabfile.py
 	ssh officewa 'pip3 install pip -U'
 	ssh officewa 'pip3 install fabric jinja2'
+update_office: auto_office
+	ssh officewa 'cd /home/osint/wall/ && fab update'
 translator:
 	(cd app && make build-translator push-translator)
 	fab sync-images
+debug:
+	INVOKE_DEBUG=true fab check
